@@ -39,10 +39,10 @@ class Command(BaseCommand):
         product_id, name, image, *description = data
         description = ''.join(description)
         product = Product(
-            id=product_id,
+            id=int(product_id),
             name=name,
-            image=image,
-            description=description
+            image=image.strip().replace('"', ''),
+            description=description.strip().replace('"', '')
         )
         return product
 

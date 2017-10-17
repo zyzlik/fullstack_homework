@@ -122,9 +122,16 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+INTERNAL_IPS = ['127.0.0.1',]
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    'assets',
+)
 
-INTERNAL_IPS = ['127.0.0.1',]
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
