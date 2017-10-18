@@ -20,7 +20,7 @@ class ProductItem extends React.Component {
             <div className="box">
                 <h1 className="title has-text-centered">{item.name}</h1>
                 <ProductImage image={item.image}/>
-                <h2 className="subtitle">{item.description}</h2>
+                <h4 className="subtitle is-size-6">{item.description}</h4>
                 <Inventory inventory={item.inventory} productId={item.id}/>
             </div>
         )

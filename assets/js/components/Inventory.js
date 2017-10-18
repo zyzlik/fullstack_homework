@@ -6,10 +6,11 @@ export class Inventory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            size: undefined,
-            len: undefined,
+            size: '',
+            len: '',
             style: ''
         };
+        this.handleLenChange.bind(this)
     }
 
     handleStyleChange(e) {
@@ -20,15 +21,17 @@ export class Inventory extends React.Component {
         });
     }
 
-    handleSizeClick(val) {
-        let newSize = this.state.size === val ? undefined : val;
+    handleSizeChange(val) {
+        val = isNaN(val) ? '' : val
+        let newSize = this.state.size === val ? '' : val;
         this.setState(function(prevValue, props) {
             return {size: newSize};
         });
     }
 
-    handleLenClick(val) {
-        let newLen = this.state.len === val ? undefined : val
+    handleLenChange(val) {
+        val = isNaN(val) ? '' : val
+        let newLen = this.state.len === val ? '' : val
         this.setState(function(prevValue, props) {
             return {len: newLen};
         });
@@ -39,6 +42,8 @@ export class Inventory extends React.Component {
             sizes = new Set(),
             lengths = new Set(),
             count = 0
+        sizes.add('')
+        lengths.add('')
         this.props.inventory.forEach(function(obj) {
             styles.add(obj.style)
             sizes.add(obj.waist)
@@ -47,8 +52,8 @@ export class Inventory extends React.Component {
         let sizeName = `size_${this.props.productId}`
         let lenName = `length_${this.props.productId}`
         styles = Array.from(styles).map((elem, index) => (<StyleBox style={elem} key={index} />))
-        sizes = Array.from(sizes).map((elem, index) => (<SizeBox handleClick={this.handleSizeClick.bind(this)} size={elem} key={index} name={sizeName}/>))
-        lengths = Array.from(lengths).map((elem, index) => (<LengthBox handleClick={this.handleLenClick.bind(this)} len={elem} key={index} name={lenName}/>))
+        sizes = Array.from(sizes).map((elem, index) => (<SizeBox handleChange={this.handleSizeChange.bind(this)} size={elem} key={index} name={sizeName}/>))
+        lengths = Array.from(lengths).map((elem, index) => (<LengthBox handleChange={this.handleLenChange.bind(this)} len={elem} key={index} name={lenName}/>))
         return (
             <div className='box'>
                 <div className="field">

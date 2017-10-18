@@ -22,15 +22,14 @@ export class CountBox extends React.Component {
     countLeft() {
         let count = 0,
             that = this;
-
         this.props.inventory.forEach(function(obj) {
             if (obj.style !== that.props.style && that.props.style !== '') {
                 return
             }
-            if (obj.waist !== that.props.size && that.props.size !== undefined) {
+            if (obj.waist !== that.props.size && that.props.size !== '') {
                 return
             }
-            if (obj.length !== that.props.len && that.props.len !== undefined ) {
+            if (obj.length !== that.props.len && that.props.len !== '' ) {
                 return
             }
             count += obj.count
@@ -53,15 +52,20 @@ export class CountBox extends React.Component {
 
 
 export class LengthBox extends React.Component {
-    handleClick(e) {
-        this.props.handleClick(parseInt(e.target.value))
+    handleChange(e) {
+        this.props.handleChange(parseInt(e.target.value))
     }
 
     render() {
+        let text = this.props.len ? this.props.len : 'all'
         return (
             <label className="radio">
-                <input type="radio" value={this.props.len} onClick={this.handleClick.bind(this)} name={this.props.name}/>
-                {this.props.len}
+                <input type="radio"
+                 value={this.props.len}
+                 onChange={this.handleChange.bind(this)}
+                 name={this.props.name}
+                 defaultChecked={this.props.len === ''} />
+                {text}
             </label>
         )
     }
@@ -79,15 +83,20 @@ export class StyleBox extends React.Component {
 
 export class SizeBox extends React.Component {
 
-    handleClick(e) {
-        this.props.handleClick(parseInt(e.target.value))
+    handleChange(e) {
+        this.props.handleChange(parseInt(e.target.value))
     }
 
     render() {
+        let text = this.props.size ? this.props.size : 'all'
         return (
              <label className="radio">
-                <input type="radio" value={this.props.size} onClick={this.handleClick.bind(this)} name={this.props.name}/>
-                {this.props.size}
+                <input type="radio"
+                 value={this.props.size}
+                 onChange={this.handleChange.bind(this)}
+                 name={this.props.name}
+                 defaultChecked={this.props.size === ''} />
+                {text}
             </label>
         )
     }
