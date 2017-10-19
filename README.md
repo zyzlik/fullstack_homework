@@ -8,7 +8,7 @@ Make sutup.sh file executable:
 
 `chmod +x setup.sh`
 
-Simply run `./setup.sh`
+Simply run `source setup.sh`
 
 Then run ```python manage.py runserver```
 
