@@ -1,6 +1,8 @@
-Assuming you have python3 and node installed.
+Assuming you have `python3` and `node.js` installed.
 
-Clone repository
+Clone repository `git clone https://github.com/zyzlik/fullstack_homework`
+
+`cd` to project folder
 
 Simply run `setup.sh`
 
