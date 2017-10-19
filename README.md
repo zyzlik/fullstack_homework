@@ -6,10 +6,8 @@ Clone repository `git clone https://github.com/zyzlik/fullstack_homework`
 
 Make sutup.sh file executable:
 
-`chmod +x setup.sh`
-
 Simply run `source setup.sh`
 
 Then run ```python manage.py runserver```
 
-Then open http://127.0.0.1:8000/ in your browser
+Then open http://127.0.0.1:8000/ in your browser.
