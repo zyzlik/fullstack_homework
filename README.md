@@ -4,7 +4,11 @@ Clone repository `git clone https://github.com/zyzlik/fullstack_homework`
 
 `cd` to project folder
 
-Simply run `setup.sh`
+Make sutup.sh file executable:
+
+`chmod +x setup.sh`
+
+Simply run `./setup.sh`
 
 Then run ```python manage.py runserver```
 
